@@ -1,4 +1,4 @@
-# Problem Set 0
+# Problem Set 1
 
 My solutions to Problem Set 1.
 
