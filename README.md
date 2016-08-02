@@ -10,3 +10,4 @@ This repository contains my solutions to the problem sets in [Harvard's CS50x co
 - [Problem Set 1](ProblemSet1/)
 - [Problem Set 2](ProblemSet2/)
 - [Problem Set 3](ProblemSet3/)
+- [Problem Set 4](ProblemSet4/)

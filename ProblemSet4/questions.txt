@@ -1,0 +1,116 @@
+0.  How many different colors does each format support (BMP, JPEG, GIF, PNG)?
+
+BMP supports between 2 (for 1-bit-per-pixel) and 4,294,967,296 (for 32-bit-per-pixel) distinct colours.
+JPEG: 24-bit colour = 16,777,216 colours.
+GIF: 256 colours
+PNG: 24-bit colour = 16,777,216 colours.
+
+
+1.  Which of the formats supports animation (BMP, JPEG, GIF, PNG)?
+
+GIF
+
+
+2.  What’s the difference between lossy and lossless compression?
+
+Both are forms of compression -  encoding information using fewer bits than the original file / representation.
+Lossless compression compresses in such a way that it is possible to perfectly reconstruct the original representation from the
+    compressed version.
+With lossy compression, data is lost, so such reconstruction is not possible, but it is often possible to reduce the size of the 
+    representation to a much greater degree than is possible with lossless compression.
+
+
+3.  Which of these formats is lossy-compressed (BMP, JPEG, GIF, PNG)?
+
+JPEG
+
+
+4.  What happens, technically speaking, when a file is deleted on a FAT file system?
+
+The file-system: 
+1. modifies the first letter of the file's directory entry, indicating that the file has been deleted.
+2. changes the FAT entries for the file's clusters to indicate that they are free for use.
+
+The data contained in the relevant clusters is not deleted.
+
+
+5.  What can someone like you do to ensure (with high probability) that files you delete cannot be recovered?
+
+Use a program which overwrites the relevant hard-disk clusters with random data or zeroes. Alternatively, use an encrypted
+file-system
+
+
+6.  What’s stdint.h?
+
+A header file, part of the standard library, containing a set of type definitions for exact-width integer types, such as
+uint8_t, an 8-bit unsigned integer type.
+
+
+7.  What’s the point of using uint8_t, uint32_t, int32_t, and uint16_t in a program?
+
+Fields in the BMP headers have specific lengths in bits, so it is important to be able to control the length in bits of 
+the members of the structs representing these headers. Similarly, each pixel in a 24-bit colour BMP is represented by a triple of
+three 8-bit numbers representing blue, green and red. A normal int is 32-bits, so would not be suitable.
+
+
+8.  How many bytes is a BYTE, a DWORD, a LONG, and a WORD, respectively?
+
+BYTE: 1 bytes
+DWORD: 4 bytes
+LONG: 4 bytes
+WORD: 2 bytes
+
+
+9.  What (in ASCII, decimal, or hexadecimal) must the first two bytes of any BMP file be? (Leading bytes used to identify file
+formats (with high probability) are generally called "magic numbers.)"
+
+"B" then "M" in ASCII.
+
+
+10. What’s the difference between bfSize and biSize?
+
+bfSize is part of the BITMAPFILEHEADER and signifies the size in bytes of the BMP file.
+biSize is part of the BITMAPINFOHEADER and signifies the number of bytes required by the BITMAPINFOHEADER structure itself.
+
+
+11. What does it mean if biHeight is negative?
+
+If biheight is negative, the bitmap is arranged bottom up, starting with the bottommost row and ending with the topmost. If the 
+biheight is positive, the bitmap is arranged "normally", starting with the topmost row and ending with the bottommost row.
+
+
+12. What field in BITMAPINFOHEADER specifies the BMP’s color depth (i.e., bits per pixel)?
+
+biBitCount
+
+
+13. Why might fopen return NULL in copy.c:37?
+
+The directory permissions might prevent the output file being created.
+
+
+14. Why is the third argument to fread always 1 in our code?
+
+The function fread has 4 arguments: bf, size, blocks, fp. It reads an element of size size, blocks number of times.
+In our code, fread is used to read BITMAPINFOHEADER and BITMAPFILEHEADER, and we only need to read each of them once.
+This function is also used to read each pixel, but we only read one pixel at a time.
+
+
+15. What value does copy.c:70 assign padding if bi.biWidth is 3?
+
+3
+
+
+16. What does fseek do?
+
+fseek is used to move the file position indicator.
+
+
+17. What is SEEK_CUR?
+
+SEEK_CUR represents the current position of the file position indicator.
+
+
+18. Whodunit?
+
+Rick Astley
