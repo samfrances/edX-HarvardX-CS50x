@@ -1,25 +1,17 @@
-// Basic conversions in C
+// The modulus operator
 
 #include <stdio.h>
 
 int main (void)
 {
-	float  f1 = 123.125, f2;
-	int    i1, i2 = -150;
-	char   c = 'a';
+    int a = 25, b = 5, c = 10, d = 7;
+    
+    printf("a = %i, b = %i, c = %i, and d = %i\n", a, b, c, d);
+    printf ("a %% b = %i\n", a % b);
+    printf ("a %% c = %i\n", a % c);
+    printf ("a %% d = %i\n", a % d);
+    printf ("a / d * d + a %% d = %i\n",
+        a / d * d + a % d);
 
-	i1 = f1;	// floating to int conversion
-	printf ("%f assigned to int produces %i\n", f1, i1);
-
-	f1 = i2;	// integer to float conversion
-	printf ("%i assigned to a float produces %f\n", i2, f1);
-
-	f1 = i2 / 100;		// integer divided by integer
-	printf ("%i divided by 100 produces %f\n", i2, f1);
-
-	f2 = i2 / 100.0;	// integer divided by float
-	printf ("%i divided by 100.0 produces %f\n", i2, f2);
-
-	f2 = (float) i2 / 100;	// type cast operator
-	printf ("(float) %i divided by 100 produces %f\n", i2, f2);
+    return 0;
 }
