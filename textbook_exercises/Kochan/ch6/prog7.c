@@ -35,4 +35,7 @@ int main (void)
         printf ("%c", baseDigits[nextDigit]);
     }
 
+    printf ("\n");
+    return 0;
+
 }
