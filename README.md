@@ -1,4 +1,4 @@
-# edX-HarvardX-CS50x
+# HarvardX CS50x: Introduction to Computer Science
 
 This repository contains my solutions to the problem sets in [Harvard's CS50x course on edX](https://www.edx.org/course/introduction-computer-science-harvardx-cs50x).
 
