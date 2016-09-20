@@ -1,0 +1,70 @@
+0.  What is pneumonoultramicroscopicsilicovolcanoconiosis?
+
+According to Google: "an artificial long word said to mean a lung disease caused by inhaling very fine ash and sand dust."
+
+1.  According to its man page, what does getrusage do?
+
+Measure resource usage.
+
+2.  Per that same man page, how many members are in a variable of type struct rusage?
+
+16
+
+3.  Why do you think we pass before and after by reference (instead of by value) to calculate, even though we’re not changing their 
+    contents?
+
+Because otherwise two large structs would be copied into the parameters of the function, which would be needlessly inefficient.
+
+4.  Explain as precisely as possible, in a paragraph or more, how main goes about reading words from a file. In other words,
+    convince us that you indeed understand how that function’s for loop works.
+
+The main function uses a for-loop and fgetc to read the file character by character, with a for-loop end condition which stops the
+loop when the end of the file is reached.
+
+Before the loop, a character array is initialised to hold the current word, and counters are initialised for current index within a word,
+number of mispellings and total number of words.
+
+Within the loop, we check if the character is alphabetic or an apostrophe. If it is, then it is appended to the current word, and
+the index is incremented. However, if the length of the word has exceeded the maximum word length, the word is discarded by
+resetting index to 0, and fgetc looped through until the next word is reached.
+
+Otherwise (when the character is not alphanumeric or an apostrophe), we check if the character is a digit. If it is, we loop through
+fgetc until the next word is reached, discarding the current word by resetting index to 0.
+
+Otherwise, if the character is neither alphanumeric nor an apostrophe, and index is greater than 0, we assume that we have reached
+the end of the word. A null character is appended to the end of the word array, and the counter for the total number of words is 
+incremented. We check if the word is misspelled, timing the check function, and print out the word if it is. We then reset the 
+index counter to 0, and reach the end of the loop. The loop will then start again unless the EOF has been reached.
+
+5.  Why do you think we used fgetc to read each word’s characters one at a time rather than use fscanf with a format string like
+    "%s" to read whole words at a time? Put another way, what problems might arise by relying on fscanf alone?
+
+Using fgetc allows us to catch illegal characters or greater than permitted length words immediately, rather than having to read
+the whole word in and then check it. This would be difficult to do, since we have know way of knowing in advance how long an array
+we would need to store words.
+
+6.  Why do you think we declared the parameters for check and load as const?
+
+To ensure that these functions cannot modify the passed in values.
+
+7.  What data structure(s) did you use to implement your spell-checker?
+
+I tried to implement a "Trie" data structure. Each of my nodes contains a is_word boolean flag, and an array of 27 node pointers
+representing the letters a-z, with the last index representing the apostrophe.
+
+8.  How slow was your code the first time you got it working correctly?
+
+TIME IN load:         0.13
+TIME IN check:        0.02
+TIME IN size:         0.00
+TIME IN unload:       0.06
+TIME IN TOTAL:        0.21
+
+9.  What kinds of changes, if any, did you make to your code in order to improve its performance?
+
+None once it was working.
+
+10. Do you feel that your code has any bottlenecks that you were not able to chip away at?
+
+I initialise all of the children pointers to null for each node, as valgrind complained that they were not initialised.
+I wonder if this is necessary, and might remove it if, after further research, it appears that the answer is that it is not.
