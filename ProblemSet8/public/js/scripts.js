@@ -87,7 +87,6 @@ function addMarker(place)
         };
         $.getJSON("articles.php", parameters)
         .done(function(data, textStatus, jqXHR) {
-            console.log(data);
             var content = "<h3>" + place.place_name + ", " + place.admin_name1 + "</h3>";
             content += "<ul>";
             for (var i = 0; i < data.length; i++) {
@@ -97,7 +96,7 @@ function addMarker(place)
             showInfo(marker, content);
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
-    
+
             // log error to browser's console
             console.log(errorThrown.toString());
         });
@@ -163,8 +162,8 @@ function configure()
     // re-enable ctrl- and right-clicking (and thus Inspect Element) on Google Map
     // https://chrome.google.com/webstore/detail/allow-right-click/hompjdfbfmmmgflfjdlnkohcplmboaeo?hl=en
     document.addEventListener("contextmenu", function(event) {
-        event.returnValue = true; 
-        event.stopPropagation && event.stopPropagation(); 
+        event.returnValue = true;
+        event.stopPropagation && event.stopPropagation();
         event.cancelBubble && event.cancelBubble();
     }, true);
 
@@ -245,7 +244,7 @@ function showInfo(marker, content)
 /**
  * Updates UI's markers.
  */
-function update() 
+function update()
 {
     // get map's bounds
     var bounds = map.getBounds();
