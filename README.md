@@ -18,4 +18,4 @@ This repository contains my solutions to the problem sets in [Harvard's CS50x co
 
 ## Final project
 
-- [Final project (candidate, in progress)](https://github.com/samfrances/Turing-Machine-Simulator/)
+- [Final project (in progress)](https://github.com/samfrances/grauniad-node)
