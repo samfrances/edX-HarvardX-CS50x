@@ -18,4 +18,8 @@ This repository contains my solutions to the problem sets in [Harvard's CS50x co
 
 ## Final project
 
-- [Final project (in progress)](https://github.com/samfrances/grauniad-node)
+- [Final project](https://github.com/samfrances/grauniad-node)
+
+## Certificate
+
+- https://courses.edx.org/certificates/ef713ba5f4d74f749c92a4a0bcf71ac0
